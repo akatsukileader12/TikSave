@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikSave - TikTok Video Downloader</title>
+    <title>TikSave - TikTok Downloader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>TikSave</h1>
-        <p>Paste the TikTok link below to download without restrictions</p>
+        <header>
+            <h1>TikSave</h1>
+            <p>Download TikTok videos without watermarks</p>
+        </header>
         
-        <div class="input-group">
-            <input type="text" id="videoUrl" placeholder="https://www.tiktok.com/@user/video/...">
-            <button id="downloadBtn">Get Video</button>
-        </div>
+        <main>
+            <div class="input-group">
+                <input type="text" id="videoUrl" placeholder="Paste TikTok link here...">
+                <button id="downloadBtn">Get Video</button>
+            </div>
 
-        <div id="loader" class="hidden">
-            <div class="spinner"></div>
-            <p>Fetching video from TikTok...</p>
-        </div>
-        
-        <div id="result" class="hidden">
-            <div class="success-icon">✅</div>
-            <p id="videoTitle" style="font-weight: bold; margin-bottom: 10px;"></p>
-            <p>Video is ready for download!</p>
-            <a id="saveLink" href="#" download="tiktok_video.mp4">Download Now</a>
-        </div>
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Processing video...</p>
+            </div>
+            
+            <div id="result" class="hidden">
+                <div class="card">
+                    <span class="success-badge">✅ Ready</span>
+                    <h3 id="videoTitle">TikTok Video</h3>
+                    <p>The video is prepared for download.</p>
+                    <a id="saveLink" href="#" download="tiktok_video.mp4" class="download-link">Download Now</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ by AkatsukiLeader</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>

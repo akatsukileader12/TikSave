@@ -14,7 +14,7 @@ downloadBtn.addEventListener('click', async () => {
 
     try {
         // REPLACE THIS URL LATER with your Vercel/Render backend URL
-        const response = await fetch(`https://your-backend-api.vercel.app/api/download?url=${encodeURIComponent(url)}`);
+        const response = await fetch(`https://tik-save-sandy.vercel.app/api/download?url=${encodeURIComponent(url)}`);
         const data = await response.json();
 
         if (data.success) {

@@ -13,20 +13,24 @@ downloadBtn.addEventListener('click', async () => {
     resultDiv.classList.add('hidden');
 
     try {
-        // REPLACE THIS URL LATER with your Vercel/Render backend URL
+        // 1. Call your Vercel backend
         const response = await fetch(`https://tik-save-sandy.vercel.app/api/download?url=${encodeURIComponent(url)}`);
         const data = await response.json();
 
         if (data.success) {
-            saveLink.href = data.download_url;
+            // 2. Set the link to your Proxy route
+            saveLink.href = `https://tik-save-sandy.vercel.app${data.download_url}`;
+            
+            // 3. Show the result
             resultDiv.classList.remove('hidden');
         } else {
             alert("Error: " + data.message);
         }
     } catch (error) {
-        console.error(error);
-        alert("Failed to connect to the server.");
+        console.error("Fetch error:", error);
+        alert("Failed to connect to the server. Check console for details.");
     } finally {
+        // Hide loading state
         loader.classList.add('hidden');
     }
 });

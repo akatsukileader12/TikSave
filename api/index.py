@@ -11,18 +11,19 @@ def download():
     if not video_url:
         return jsonify({"success": False, "message": "No URL provided"}), 400
 
-    # We want a format that is likely to be a direct MP4 
+    # We use 'best' to get a direct MP4 link that browsers can handle
     ydl_opts = {
-        'format': 'bestvideo+bestaudio/best',
+        'format': 'best',
         'quiet': True,
         'no_warnings': True,
+        'extractor_args': {'tiktok': {'webpage_download': False}}
     }
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(video_url, download=False)
             
-            # This is the direct CDN link found by the server
+            # This is the direct address to the video file on TikTok's CDN
             direct_link = info.get('url')
             
             return jsonify({
@@ -33,4 +34,5 @@ def download():
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 500
 
+# Required for Vercel
 app_handler = app

@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikSave - Video Downloader</title>
+    <title>TikSave - TikTok Video Downloader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>TikSave</h1>
-        <p>Paste the TikTok link below to get the video</p>
+        <p>Paste the TikTok link below to download without restrictions</p>
         
         <div class="input-group">
             <input type="text" id="videoUrl" placeholder="https://www.tiktok.com/@user/video/...">
             <button id="downloadBtn">Get Video</button>
         </div>
 
-        <div id="loader" class="hidden">Processing...</div>
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching video from TikTok...</p>
+        </div>
         
         <div id="result" class="hidden">
-            <p>Video Ready!</p>
-            <a id="saveLink" href="#" target="_blank" download>Download Now</a>
+            <div class="success-icon">✅</div>
+            <p id="videoTitle" style="font-weight: bold; margin-bottom: 10px;"></p>
+            <p>Video is ready for download!</p>
+            <a id="saveLink" href="#" download="tiktok_video.mp4">Download Now</a>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

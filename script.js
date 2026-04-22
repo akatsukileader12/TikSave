@@ -20,7 +20,8 @@ downloadBtn.addEventListener('click', async () => {
         if (data.success) {
             // 2. Set the link to your Proxy route
             saveLink.href = `https://tik-save-sandy.vercel.app${data.download_url}`;
-            
+            document.getElementById('videoTitle').innerText = data.title;
+
             // 3. Show the result
             resultDiv.classList.remove('hidden');
         } else {
